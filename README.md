@@ -1,5 +1,7 @@
 # Extensão Chrome - Gerador de Dados
 
+Em breve na Chrome Web Store
+
 ![Demonstração](./docs/demo.png)
 
 ## Instalação
