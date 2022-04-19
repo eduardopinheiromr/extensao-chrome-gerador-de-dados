@@ -1,44 +1,77 @@
-function dig(n1: number, n2: number, n3: number, n4?: number) {
-  const nums = String(n1)
+export const calcFirstChecker = (firstNineDigits: string): number => {
+  let sum = 0;
+
+  for (let i = 0; i < 9; ++i) {
+    sum += Number(firstNineDigits.charAt(i)) * (10 - i);
+  }
+
+  const lastSumChecker = sum % 11;
+  return lastSumChecker < 2 ? 0 : 11 - lastSumChecker;
+};
+
+export const calcSecondChecker = (cpfWithChecker1: string): number => {
+  let sum = 0;
+
+  for (let i = 0; i < 10; ++i) {
+    sum += Number(cpfWithChecker1.charAt(i)) * (11 - i);
+  }
+
+  const lastSumChecker2 = sum % 11;
+  return lastSumChecker2 < 2 ? 0 : 11 - lastSumChecker2;
+};
+
+export const generateNineDigits = (): string => {
+  let digits = "";
+  for (let i = 0; i < 9; ++i) {
+    digits += String(Math.floor(Math.random() * 10));
+  }
+
+  return digits;
+};
+
+export const hasCPFLength = (cpf: string): void | boolean => {
+  return cpf.length > 11 || cpf.length < 11 ? false : true;
+};
+
+export const allDigitsAreEqual = (digits: string): boolean => {
+  for (let i = 0; i < 10; i++) {
+    if (digits === new Array(digits.length + 1).join(String(i))) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+export const cpfMask = (value: string) => {
+  return value
     .split("")
-    .concat(String(n2).split(""), String(n3).split(""));
-  if (n4 !== undefined) {
-    nums[9] = String(n4);
-  }
+    .map((char, index) => {
+      if (index === 2 || index === 5) {
+        return `${char}.`;
+      }
+      if (index === 9) {
+        return `-${char}`;
+      }
+      return char;
+    })
+    .join("");
+};
 
-  let x = 0;
-  for (let i = n4 !== undefined ? 11 : 10, j = 0; i >= 2; i--, j++) {
-    x += parseInt(nums[j]) * i;
-  }
+export const generateCPF = ({ withPontuation }: GeneratorProps): string => {
+  let firstNineDigits = "";
 
-  const y = x % 11;
-  return y < 2 ? 0 : 11 - y;
-}
+  do {
+    firstNineDigits = generateNineDigits();
+  } while (allDigitsAreEqual(firstNineDigits));
 
-function randomNumber() {
-  const random = String(Math.floor(Math.random() * 999));
-  return Number(random.padStart(3, "0"));
-}
-
-function generate({ withPontuation }: GeneratorProps) {
-  const num1 = randomNumber();
-  const num2 = randomNumber();
-  const num3 = randomNumber();
-  const dig1 = dig(num1, num2, num3);
-  const dig2 = dig(num1, num2, num3, dig1);
-
-  if (isNaN(dig1) || isNaN(dig2)) throw Error("Invalid digit");
+  const firstChecker = calcFirstChecker(firstNineDigits);
+  const secondChecker = calcSecondChecker(firstNineDigits + firstChecker);
+  const generatedCPF = `${firstNineDigits}${firstChecker}${secondChecker}`;
 
   if (withPontuation) {
-    return `${num1}.${num2}.${num3}-${dig1}${dig2}`;
+    return cpfMask(generatedCPF);
   }
-  return `${num1}${num2}${num3}${dig1}${dig2}`;
-}
 
-export const generateCPF = ({ withPontuation }: GeneratorProps) => {
-  try {
-    return generate({ withPontuation });
-  } catch {
-    return generate({ withPontuation });
-  }
+  return generatedCPF;
 };

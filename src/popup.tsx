@@ -3,10 +3,8 @@ import ReactDOM from "react-dom";
 
 import ButtonGenerator from "./ButtonGenerator";
 import Switch from "./Switch";
-import { generateCNPJ } from "./utils/generateCNPJ";
-import { generateCPF } from "./utils/generateCPF";
-import { generateEmail } from "./utils/generateEmail";
-import { generatePhone } from "./utils/generatePhone";
+
+import { generators } from "./constants/generators";
 
 const Popup = () => {
   const [data, setData] = useState({
@@ -15,24 +13,6 @@ const Popup = () => {
     withPontuation: true,
   });
 
-  const generators = [
-    {
-      name: "CPF",
-      generatorFn: generateCPF,
-    },
-    {
-      name: "CNPJ",
-      generatorFn: generateCNPJ,
-    },
-    {
-      name: "Celular",
-      generatorFn: generatePhone,
-    },
-    {
-      name: "Email",
-      generatorFn: generateEmail,
-    },
-  ];
   return (
     <>
       <Switch

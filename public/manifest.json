@@ -3,9 +3,6 @@
   "name": "Gerador de Dados",
   "description": "Um gerador de dados fake com intuito único de testar aplicações de forma facilitada no browser.",
   "version": "1.0",
-  "options_ui": {
-    "page": "options.html"
-  },
   "action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
@@ -16,12 +13,8 @@
         "<all_urls>"
       ],
       "js": [
-        "js/vendor.js",
-        "js/content_script.js"
+        "js/vendor.js"
       ]
     }
-  ],
-  "background": {
-    "service_worker": "js/background.js"
-  }
+  ]
 }

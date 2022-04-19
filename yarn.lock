@@ -1592,6 +1592,11 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
+gerador-validador-cpf@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/gerador-validador-cpf/-/gerador-validador-cpf-5.0.2.tgz#281f630f274fc8453b6e23a5cb557675cf475ec7"
+  integrity sha512-7nqJilkfIv3HIbB50uP32SOxe/A3TyvVS3AXxwU6cqHq7jMTnkp0WGPaGytY3Yc36RjzysVQ6xhlwcCt70CnOw==
+
 get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
