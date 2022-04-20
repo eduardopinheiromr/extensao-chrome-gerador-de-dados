@@ -1,6 +1,8 @@
 # Extensão Chrome - Gerador de Dados
 
-Em breve na Chrome Web Store
+Essa extensão não exige permissões, não coleta dados do usuário e não processa nenhum dado com terceiros. Fique em paz para usar sem medo e a vontade para olhar o código :)
+
+[Link para instalar via Chrome Web Store](https://chrome.google.com/webstore/detail/gerador-de-dados/danfhkefkmhccgdacmdgopjpadedfgll?hl=pt-BR&authuser=1)
 
 ![Demonstração](./docs/demo.png)
 
