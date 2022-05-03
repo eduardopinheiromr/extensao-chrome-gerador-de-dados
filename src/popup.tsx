@@ -5,6 +5,7 @@ import ButtonGenerator from "./ButtonGenerator";
 import Switch from "./Switch";
 
 import { generators } from "./constants/generators";
+import CreditCardGenerator from "./CreditCardGenerator";
 
 const Popup = () => {
   const [data, setData] = useState({
@@ -37,6 +38,8 @@ const Popup = () => {
             setData={setData}
           />
         ))}
+
+        <CreditCardGenerator />
       </div>
     </>
   );
