@@ -10,7 +10,7 @@ export default function Button({ ...props }: Props) {
 }
 
 const baseStyles = {
-  fontFamily: "Ubuntu, Arial, sans-serif",
+  // fontFamily: "",
   fontWeight: "bold",
   minWidth: "200px",
   backgroundColor: "#FF5148",

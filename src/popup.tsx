@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import "./fonts/fonts.css";
 
 import ButtonGenerator from "./ButtonGenerator";
 import Switch from "./Switch";
@@ -15,7 +16,11 @@ const Popup = () => {
   });
 
   return (
-    <>
+    <div
+      style={{
+        minWidth: "201px",
+      }}
+    >
       <Switch
         label="Gerar com pontuação:"
         value={data.withPontuation}
@@ -41,7 +46,7 @@ const Popup = () => {
 
         <CreditCardGenerator />
       </div>
-    </>
+    </div>
   );
 };
 
